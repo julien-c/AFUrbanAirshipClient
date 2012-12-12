@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 
 #import "AFUrbanAirshipClient.h"
-#import "AFJSONRequestOperation.h"
 
 static NSString * const kAFUrbanAirshipAPIBaseURLString = @"https://go.urbanairship.com/api/";
 
