@@ -41,9 +41,6 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
     
     self.parameterEncoding = AFJSONParameterEncoding;
     
-    [self setDefaultHeader:@"Accept" value:@"application/json"];
-    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    
     [self setAuthorizationHeaderWithUsername:key password:secret];
     
     return self;
