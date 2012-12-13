@@ -47,7 +47,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
 
 - (void)registerDeviceToken:(NSString *)deviceToken
                   withAlias:(NSString *)alias
-                    success:(void (^)())success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure
 {
     NSMutableSet *mutableTags = [NSMutableSet set];
@@ -66,7 +66,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
                    timezone:(NSTimeZone *)timeZone
              quietTimeStart:(NSDateComponents *)quietTimeStartComponents
                quietTimeEnd:(NSDateComponents *)quietTimeEndComponents
-                    success:(void (^)())success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure
 {
     NSMutableDictionary *mutablePayload = [NSMutableDictionary dictionary];
@@ -99,7 +99,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
 
 - (void)registerDeviceToken:(NSString *)deviceToken
                 withPayload:(NSDictionary *)payload
-                    success:(void (^)())success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure
 {    
     [self putPath:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:payload success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -114,7 +114,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
 }
 
 - (void)unregisterDeviceToken:(NSString *)deviceToken
-                      success:(void (^)())success
+                      success:(void (^)(void))success
                       failure:(void (^)(NSError *error))failure
 {
     [self deletePath:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
