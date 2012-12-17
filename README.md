@@ -22,8 +22,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:kUrbanAirshipApplicationKey applicationSecret:kUrbanAirshipApplicationSecret];
-    [client registerDeviceToken:deviceToken withAlias:nil success:^(id responseObject) {
-        NSLog(@"Success: %@", responseObject);
+    [client registerDeviceToken:deviceToken withAlias:nil success:^{
+        NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
     }];

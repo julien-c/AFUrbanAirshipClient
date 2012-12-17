@@ -36,7 +36,7 @@
  */
 - (void)registerDeviceToken:(id)deviceToken
                   withAlias:(NSString *)alias
-                    success:(void (^)(id responseObject))success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 
 /**
@@ -49,7 +49,7 @@
                    timezone:(NSTimeZone *)timeZone
              quietTimeStart:(NSDateComponents *)quietTimeStartComponents
                quietTimeEnd:(NSDateComponents *)quietTimeEndComponents
-                    success:(void (^)(id responseObject))success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 
 /**
@@ -57,14 +57,14 @@
  */
 - (void)registerDeviceToken:(id)deviceToken
                 withPayload:(NSDictionary *)payload
-                    success:(void (^)(id responseObject))success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 
 /**
  
  */
 - (void)unregisterDeviceToken:(id)deviceToken
-                      success:(void (^)())success
+                      success:(void (^)(void))success
                       failure:(void (^)(NSError *error))failure;
 
 @end
