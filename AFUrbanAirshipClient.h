@@ -21,9 +21,9 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperationManager.h"
 
-@interface AFUrbanAirshipClient : AFHTTPClient
+@interface AFUrbanAirshipClient : AFHTTPRequestOperationManager
 
 /**
  

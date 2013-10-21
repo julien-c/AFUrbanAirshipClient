@@ -38,9 +38,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
         return nil;
     }
     
-    self.parameterEncoding = AFJSONParameterEncoding;
-    
-    [self setAuthorizationHeaderWithUsername:key password:secret];
+    [self.requestSerializer setAuthorizationHeaderFieldWithUsername:key password:secret];
     
     return self;
 }
@@ -102,7 +100,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure
 {    
-    [self putPath:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:payload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self PUT:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:payload success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success();
         }
@@ -117,7 +115,7 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
                       success:(void (^)(void))success
                       failure:(void (^)(NSError *error))failure
 {
-    [self deletePath:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self DELETE:[NSString stringWithFormat:@"device_tokens/%@", AFNormalizedDeviceTokenStringWithDeviceToken(deviceToken)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success();
         }
