@@ -38,6 +38,9 @@ static NSString * AFNormalizedDeviceTokenStringWithDeviceToken(id deviceToken) {
         return nil;
     }
     
+    self.requestSerializer = [AFJSONRequestSerializer serializer];
+    self.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [self.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/plain", nil]];
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:key password:secret];
     
     return self;
